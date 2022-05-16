@@ -1,0 +1,2 @@
+[development]
+dev1 ansible_host=6.tcp.eu.ngrok.io ansible_port=12386

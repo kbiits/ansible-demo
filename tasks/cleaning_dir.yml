@@ -1,0 +1,3 @@
+---
+- name: Cleaning Directory
+  command: sh -c "cd {{ deploy_path }} && rm -fr ./*"

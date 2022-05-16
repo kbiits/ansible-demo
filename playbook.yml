@@ -1,0 +1,6 @@
+- hosts: development
+  vars_files:
+    - vars.yml
+  tasks:
+    - import_tasks: tasks/cleaning_dir.yml
+    - import_tasks: tasks/clone_repo.yml
