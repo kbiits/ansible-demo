@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  node-1:
+    container_name: node-1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: uas_rpl:custom
+    ports:
+      - "81:80"
+      - "2221:22"
