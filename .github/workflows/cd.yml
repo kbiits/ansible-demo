@@ -31,17 +31,17 @@ jobs:
           sudo apt-add-repository --yes --update ppa:ansible/ansible
           sudo apt install ansible -y
 
-      - run: 'echo "$SSH_KEY" > ~/.key'
+      - run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/priv.key
+          chmod 600 ~/.ssh/priv.key
         shell: bash
         env:
-          SSH_KEY: ${{secrets.SSH_KEY}}
-
-      - name: Escalate Private Key Permissions
-        run: chmod 400 ~/.key
+          SSH_KEY: ${{ secrets.SSH_KEY }}
 
       - name: Run ansible playbook
         run: |
-          ansible-playbook --private-key ~/.key -i ./inventory playbook.yml -vvv
+          ansible-playbook --private-key ~/.ssh/priv.key -i ./inventory playbook.yml -vvv
         env:
           ANSIBLE_CONFIG: ./ansible.cfg
 
