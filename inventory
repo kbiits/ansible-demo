@@ -1,2 +1,2 @@
 [development]
-dev1 ansible_host=2.tcp.ngrok.io ansible_port=15509
+dev1 ansible_host=2.tcp.ngrok.io ansible_port=14667
